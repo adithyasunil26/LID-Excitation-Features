@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import preprocessing
+from sklearn.metrics import classification_report
 
 print("Loading data...")
 df=pd.read_csv('generated_csvs/df.csv')
@@ -40,3 +41,5 @@ print('Accuracy of Random Forest classifier on validation set: {:.2f}'
      .format(clf.score(X_val, y_val)))
 print('Accuracy of Random Forest classifier on test set: {:.2f}'
      .format(clf.score(X_test, y_test)))
+
+print(classification_report(y_test, clf.predict(X_test)))
